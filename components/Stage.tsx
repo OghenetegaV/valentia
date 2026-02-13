@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Garden from "@/components/Garden";
+import { playClick } from "@/components/SoundManager";
 
 export default function Stage() {
   const [scene, setScene] = useState("opening");
@@ -159,7 +160,10 @@ export default function Stage() {
                 <div className="mt-14 flex flex-col gap-6 w-full max-w-[320px]">
 
                   <button
-                    onClick={handleOpen}
+                    onClick={() => {
+                        playClick();
+                        handleOpen();
+                    }}
                     disabled={isOpening}
                     className="py-4 tracking-[0.35em] font-grand
                                text-black
@@ -173,7 +177,10 @@ export default function Stage() {
                   </button>
 
                   <button
-                    onClick={handleIgnore}
+                    onClick={() => {
+                        playClick();
+                        handleIgnore();
+                    }}
                     className="py-4 tracking-[0.35em] font-grand
                                text-white
                                bg-gradient-to-b from-[#9b111e] to-[#4a0000]

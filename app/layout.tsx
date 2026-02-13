@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Cursor from "@/components/Cursor";
 import PageTransition from "@/components/PageTransition";
+import SoundManager from "@/components/SoundManager";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="cursor-none overflow-hidden bg-[#0a0505]">
+        <SoundManager />
         <Cursor />
         <PageTransition>
           {children}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { playClick } from "@/components/SoundManager";
 
 export default function Garden() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function Garden() {
             href="/"
             className="text-[#f5e6c8] hover:text-white tracking-wider text-sm transition"
           >
-            ← Back
+            Back
           </Link>
         </div>
 
@@ -67,14 +68,20 @@ export default function Garden() {
             <div className="mt-8 space-y-4">
 
               <button
-                onClick={() => navigateWithFade("/galentine")}
+                onClick={() => {
+                playClick();
+                navigateWithFade("/galentine");
+              }}
                 className="w-full py-3 text-lg font-grand bg-[#6b4b2a] text-white hover:bg-[#7c5a35] transition active:scale-95"
               >
                 Galentine
               </button>
 
               <button
-                onClick={() => navigateWithFade("/valentine")}
+                onClick={() => {
+                playClick();
+                navigateWithFade("/valentine");
+              }}
                 className="w-full py-3 text-lg font-grand bg-[#8b2a2a] text-white hover:bg-[#a33636] transition active:scale-95"
               >
                 Valentine
@@ -126,14 +133,20 @@ export default function Garden() {
               <div className="mt-6 space-y-3">
 
                 <button
-                  onClick={() => navigateWithFade("/galentine")}
+                  onClick={() => {
+                    playClick();
+                    navigateWithFade("/galentine");
+                  }}
                   className="w-full py-3 text-lg font-grand bg-[#6b4b2a] text-white hover:bg-[#7c5a35] transition active:scale-95"
                 >
                   Galentine
                 </button>
 
                 <button
-                  onClick={() => navigateWithFade("/valentine")}
+                  onClick={() => {
+                    playClick();
+                    navigateWithFade("/valentine");
+                  }}
                   className="w-full py-3 text-lg font-grand bg-[#8b2a2a] text-white hover:bg-[#a33636] transition active:scale-95"
                 >
                   Valentine

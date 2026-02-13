@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { playClick } from "@/components/SoundManager";
 
 export default function Page() {
   const [showLetter, setShowLetter] = useState(false);
@@ -36,7 +37,7 @@ export default function Page() {
           href="/"
           className="text-[#f5e6c8] hover:text-white tracking-wider text-sm transition"
         >
-          ← Back
+          Back
         </Link>
       </div>
 

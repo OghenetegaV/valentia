@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { playClick } from "@/components/SoundManager";
 
 export default function ValentinePage() {
   const [showLetter, setShowLetter] = useState(false);
@@ -42,7 +43,7 @@ export default function ValentinePage() {
                      tracking-wider text-sm
                      transition"
         >
-          ← Back
+          Back
         </Link>
       </div>
 
