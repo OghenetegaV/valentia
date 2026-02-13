@@ -17,7 +17,7 @@ export default function Stage() {
     setTimeout(() => {
       setScene("garden");
       setIsOpening(false);
-    }, 800); // give time for open animation
+    }, 800);
   };
 
   const handleIgnore = () => {
@@ -34,44 +34,41 @@ export default function Stage() {
     <main className="relative h-screen w-full overflow-hidden bg-black">
 
       {/* HEARTBREAK SCREEN */}
-        <AnimatePresence>
+      <AnimatePresence>
         {isHeartbreak && (
-            <motion.div
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="absolute inset-0 z-50 bg-black flex items-center justify-center"
-            >
+          >
             <div className="flex flex-col items-center justify-center text-center">
-
-                <motion.img
-                src="https://media1.tenor.com/m/uTMsWEXApMMAAAAC/cuorespezzato.gif" 
+              <motion.img
+                src="https://media1.tenor.com/m/uTMsWEXApMMAAAAC/cuorespezzato.gif"
                 alt="Heartbreak"
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.6 }}
                 className="w-64 md:w-80 object-contain"
-                />
-
-                <motion.p
+              />
+              <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
                 className="mt-6 text-white font-grand tracking-wider text-lg"
-                >
+              >
                 Wow. Cold.
-                </motion.p>
-
+              </motion.p>
             </div>
-            </motion.div>
+          </motion.div>
         )}
-        </AnimatePresence>
+      </AnimatePresence>
 
       {!isHeartbreak && (
         <>
           {/* Background */}
           <motion.img
-            src="/valentia_garden.png"
+            src="/castle-bgimg.jpg"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 3 }}
@@ -89,7 +86,7 @@ export default function Stage() {
               >
 
                 {/* Speech Bubble */}
-                {!isOpening && (
+                {/* {!isOpening && (
                   <motion.div
                     initial={{ scale: 0.2, opacity: 0, y: 10 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -107,19 +104,29 @@ export default function Stage() {
                         className="w-full"
                       />
                       <div className="absolute left-[15%] right-[15%] top-[25%] bottom-[35%] flex items-center justify-center text-center">
-                        <p className="text-black text-[13px] md:text-xs font-bolder leading-snug">
+                        <p
+                          className="text-[#2b1a14] text-[13px] md:text-xs font-extrabold leading-snug
+                                     drop-shadow-[0_2px_3px_rgba(255,255,255,0.8)]
+                                     [text-shadow:0_0_6px_rgba(255,255,255,0.9)]"
+                        >
                           Hey there,<br />
                           I have something for you
                         </p>
                       </div>
                     </div>
                   </motion.div>
-                )}
+                )} */}
 
                 {/* Envelope Wrapper */}
-                <div className="relative">
-
-                  {/* Envelope Image Swap */}
+                <motion.div
+                  initial={{ x: -600, opacity: 0, rotate: -6 }}
+                  animate={{ x: 0, opacity: 1, rotate: 0 }}
+                  transition={{
+                    duration: 1.4,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="relative"
+                >
                   <motion.img
                     src={
                       isOpening
@@ -147,22 +154,23 @@ export default function Stage() {
                       transition={{ duration: 1.4 }}
                       className="absolute inset-0 flex items-center justify-center"
                     >
-                      <div className="w-96 h-96 md:w-[520px] md:h-[520px]
-                                      rounded-full
-                                      bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.6)_35%,rgba(255,255,255,0.2)_60%,transparent_75%)]
-                                      blur-3xl"
+                      <div
+                        className="w-96 h-96 md:w-[520px] md:h-[520px]
+                                   rounded-full
+                                   bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.6)_35%,rgba(255,255,255,0.2)_60%,transparent_75%)]
+                                   blur-3xl"
                       />
                     </motion.div>
                   )}
-                </div>
+                </motion.div>
 
                 {/* Buttons */}
                 <div className="mt-14 flex flex-col gap-6 w-full max-w-[320px]">
 
                   <button
                     onClick={() => {
-                        playClick();
-                        handleOpen();
+                      playClick();
+                      handleOpen();
                     }}
                     disabled={isOpening}
                     className="py-4 tracking-[0.35em] font-grand
@@ -178,8 +186,8 @@ export default function Stage() {
 
                   <button
                     onClick={() => {
-                        playClick();
-                        handleIgnore();
+                      playClick();
+                      handleIgnore();
                     }}
                     className="py-4 tracking-[0.35em] font-grand
                                text-white

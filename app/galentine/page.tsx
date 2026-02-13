@@ -32,14 +32,25 @@ export default function Page() {
       />
 
       {/* Back Button */}
-      <div className="absolute top-6 left-6 z-40">
         <Link
-          href="/"
-          className="text-[#f5e6c8] hover:text-white tracking-wider text-sm transition"
+        href="/"
+        style={{
+            position: "fixed",
+            top: "22px",
+            left: "22px",
+            zIndex: 9999,
+        }}
+        className="
+            px-10 py-5
+            text-4xl
+            font-grand
+            text-black
+            shadow-lg
+            underline-none
+        "
         >
-          Back
+        ← Back
         </Link>
-      </div>
 
       {/* Headline + Buttons (same vertical position as before) */}
       {!showLetter && (

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Cursor from "@/components/Cursor";
+// import Cursor from "@/components/Cursor";
 import PageTransition from "@/components/PageTransition";
 import SoundManager from "@/components/SoundManager";
 
@@ -30,9 +30,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="cursor-none overflow-hidden bg-[#0a0505]">
+      <body className="overflow-hidden bg-[#0a0505]">
         <SoundManager />
-        <Cursor />
+        {/* <Cursor /> */}
         <PageTransition>
           {children}
         </PageTransition>

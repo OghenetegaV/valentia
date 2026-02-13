@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { playClick } from "@/components/SoundManager";
 
 export default function ValentinePage() {
   const [showLetter, setShowLetter] = useState(false);
@@ -15,7 +14,7 @@ export default function ValentinePage() {
 
       {/* Background */}
       <img
-        src="/valentia_winking.png"
+        src="/valentia_roses.png"
         alt="Valentia"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -27,7 +26,7 @@ export default function ValentinePage() {
                       via-black/40 
                       to-black/85" />
 
-      {/* Extra Dark Layer (fades in only when letter opens) */}
+      {/* Extra Dark Layer when letter opens */}
       <motion.div
         className="absolute inset-0 bg-black"
         initial={{ opacity: 0 }}
@@ -35,48 +34,58 @@ export default function ValentinePage() {
         transition={{ duration: 0.4 }}
       />
 
-      {/* Back Button (fixed color + visibility) */}
-      <div className="absolute top-6 left-6 z-40">
+        {/* Back Button */}
         <Link
-          href="/"
-          className="text-[#f5e6c8] hover:text-white
-                     tracking-wider text-sm
-                     transition"
+        href="/"
+        style={{
+            position: "fixed",
+            top: "22px",
+            left: "22px",
+            zIndex: 9999,
+        }}
+        className="
+            px-10 py-5
+            text-4xl
+            font-grand
+            text-[#f5e6c8]
+            shadow-lg
+            underline-none
+        "
         >
-          Back
+        ← Back
         </Link>
-      </div>
 
-      {/* Main Panel (hidden when letter opens) */}
+      {/* ===== CENTERED MAIN PANEL ===== */}
       {!showLetter && (
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0 z-20 flex items-center justify-center px-6"
+          transition={{ duration: 0.8 }}
+          className="absolute left-1/2 top-1/2 
+                     -translate-x-1/2 -translate-y-1/2 
+                     z-20 w-full px-6"
         >
-          <div className="relative w-full max-w-2xl text-center 
-                          bg-black/40 
-                          border border-white/10
-                          backdrop-blur-md
-                          px-10 py-14
-                          shadow-[0_40px_120px_rgba(0,0,0,0.8)]">
-
+          <div
+            className="relative w-full max-w-2xl mx-auto
+                       text-center
+                       bg-black/40 
+                       border border-white/10
+                       backdrop-blur-md
+                       px-12 py-16
+                       shadow-[0_40px_120px_rgba(0,0,0,0.8)]"
+          >
             <h1
               className="font-italic-serif 
                          text-[clamp(2rem,6vw,5rem)] 
                          text-[#f5e6c8] 
                          italic
+                         leading-tight
                          drop-shadow-[0_0_30px_rgba(255,215,150,0.6)]"
             >
-              For You.
+              Choose a path
             </h1>
 
-            <p className="mt-6 text-white/70 tracking-wide">
-              A single rose carries more than petals.
-            </p>
-
-            <div className="mt-12 flex justify-center gap-8 flex-wrap">
+            <div className="my-12 flex justify-center gap-8 flex-wrap">
 
               <button
                 onClick={() => setShowLetter(true)}
@@ -89,7 +98,7 @@ export default function ValentinePage() {
                            active:scale-95
                            transition-all duration-300"
               >
-                READ MY HEART
+                READ ME
               </button>
 
               <button
@@ -111,7 +120,7 @@ export default function ValentinePage() {
         </motion.div>
       )}
 
-      {/* Scroll Overlay */}
+      {/* ===== SCROLL OVERLAY ===== */}
       <AnimatePresence>
         {showLetter && (
           <motion.div
@@ -133,7 +142,7 @@ export default function ValentinePage() {
               <motion.img
                 src="/scroll.png"
                 alt="Scroll"
-                className="w-full drop-shadow-[0_60px_140px_rgba(0,0,0,0.9)]"
+                className="w-full drop-shadow-[0_60px_140px_rgba(0,0,0,0.9)] opacity-70"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               />

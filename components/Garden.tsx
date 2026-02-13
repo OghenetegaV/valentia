@@ -32,14 +32,25 @@ export default function Garden() {
       <div className="hidden md:flex w-full h-full">
 
         {/* Back Button */}
-        <div className="absolute top-6 left-6 z-40">
-          <Link
-            href="/"
-            className="text-[#f5e6c8] hover:text-white tracking-wider text-sm transition"
-          >
-            Back
-          </Link>
-        </div>
+        <Link
+        href="/"
+        style={{
+            position: "fixed",
+            top: "22px",
+            left: "22px",
+            zIndex: 9999,
+        }}
+        className="
+            px-10 py-5
+            text-4xl
+            font-grand
+            text-[#f5e6c8]
+            shadow-lg
+            underline-none
+        "
+        >
+        ← Back
+        </Link>
 
         {/* Left Image */}
         <div className="w-3/5 h-full relative">
@@ -102,14 +113,25 @@ export default function Garden() {
         />
 
         {/* Back Button */}
-        <div className="absolute top-6 left-6 z-40">
-          <Link
-            href="/"
-            className="text-[#f5e6c8] hover:text-white tracking-wider text-sm transition"
-          >
-            ← Back
-          </Link>
-        </div>
+        <Link
+        href="/"
+        style={{
+            position: "fixed",
+            top: "22px",
+            left: "22px",
+            zIndex: 9999,
+        }}
+        className="
+            px-10 py-5
+            text-4xl
+            font-grand
+            text-[#f5e6c8]
+            shadow-lg
+            underline-none
+        "
+        >
+        ← Back
+        </Link>
 
         <div className="absolute inset-0 bg-black/60 pointer-events-none" />
 
@@ -126,8 +148,8 @@ export default function Garden() {
             <div className="absolute text-center px-6 max-w-xs">
 
               <p className="font-italic-serif text-2xl text-[#3b2b1f] italic">
-                “I knew you would come. <br/>
-                Would you be my..."
+                “I knew you would come." <br/>
+                Would you be my...
               </p>
 
               <div className="mt-6 space-y-3">
