@@ -36,7 +36,13 @@ export default function Envelope({ isBurning, scene, onOpen }: { isBurning: bool
               
               {/* Interactive Wax Seal */}
               <motion.div 
-                animate={{ shadow: ["0 0 20px rgba(212,175,55,0)", "0 0 20px rgba(212,175,55,0.4)", "0 0 20px rgba(212,175,55,0)"] }}
+                animate={{
+                  boxShadow: [
+                    "0 0 20px rgba(212,175,55,0)",
+                    "0 0 20px rgba(212,175,55,0.4)",
+                    "0 0 20px rgba(212,175,55,0)"
+                  ]
+                }}
                 transition={{ repeat: Infinity, duration: 2 }}
                 className="w-16 h-16 md:w-20 md:h-20 bg-[#720917] rounded-full border-2 border-[#d4af37] shadow-lg flex items-center justify-center mx-auto mb-6 md:mb-8 relative"
               >
