@@ -103,7 +103,7 @@ export default function GalleryPage() {
         </p>
 
         <p className="mt-4 text-[#d4af3780] italic text-base font-bold">
-          Click To Reveal
+          Click Image To Reveal
         </p>
       </div>
 
