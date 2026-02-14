@@ -128,19 +128,24 @@ export default function ValentinePage() {
                 className="text-center"
               >
                 <p className="font-serif text-[#3b2b1f] text-base md:text-lg leading-relaxed">
-                  Hi love 💖 <br /><br />
+                  You had your chance to leave… but if you made it this far, stop fighting it. You’re in love with me and I love you right back💌 <br /><br />
 
-                  If you’re here, just know you’re a certified precious human and I genuinely value you so much. And honestly… what better way to say that than by geeking out and making an animated representation of my heart for you? 😂 Because if I can’t express love dramatically and slightly unhinged, is it even me? <br /><br />
+                  Hi 🌹 <br /><br />
 
-                  I mean… if you’re seeing this, you already know I love my Anime badddd. Like unnecessarily deep. And I’m saying it now with full chest, I love you the same way… maybe even more😭 <br /><br />
+                  At this point Valentine is probably already coming to a close but I’ve genuinely been trapped with work and couldn’t get around to making this in time. And honestly? I’d much rather be trapped in your arms. I’m not even joking. I’d pick that over deadlines any day. <br /><br />
 
-                  I really can’t wait to see where our friendship takes us. Soft life? Chaotic adventures? Random 2am voice notes? The possibilities are endless. <br /><br />
+                  It’s the season of Love and we’re allowed to be true to what we feel without pretending to be cool about it. So here it is, I cherish you. Deeply… Calmly… INTENTIONALLY. <br /><br />
 
-                  Just know this, I’ll always be on your side. Hyping you. Defending you. Supporting your delusions within reason 😌 <br /><br />
+                  Aren’t you so lucky there’s distance between us? Because if there wasn’t any… you’d already be in the process of becoming a Parent lol🫦 <br /><br />
 
-                  Love you girl. For real for real 💖 <br /><br />
+                  But really, I definitely have love for you. The real kind. The steady kind. So if you ever need to talk or you randomly miss me, just know I automatically miss you too. No hesitation. No pride. Just mutual missing💐 <br /><br />
 
-                  ~Anthonia ✨
+                  Have a beautiful day and keep your heart warm. And if it ever feels cold, run to me. I’ll love you back to warmth gently and completely ❤️‍🔥 <br /><br />
+
+                  Every single word I’m saying, I mean with utmost sincerity. <br /><br />
+
+                  I LOVE YOU 💌 <br /><br />
+                  -Anthonia
                 </p>
 
                 <button

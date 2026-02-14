@@ -32,7 +32,6 @@ export default function Stage() {
 
   return (
     <main className="relative h-screen w-full overflow-hidden bg-black">
-
       {/* HEARTBREAK SCREEN */}
       <AnimatePresence>
         {isHeartbreak && (
@@ -84,64 +83,39 @@ export default function Stage() {
                 key="opening"
                 className="relative z-20 h-full flex flex-col items-center justify-center"
               >
-
-                {/* Speech Bubble */}
-                {/* {!isOpening && (
-                  <motion.div
-                    initial={{ scale: 0.2, opacity: 0, y: 10 }}
-                    animate={{ scale: 1, opacity: 1, y: 0 }}
-                    transition={{
-                      delay: 1.2,
-                      duration: 0.4,
-                      ease: [0.22, 1.4, 0.36, 1]
-                    }}
-                    className="absolute top-[12%] left-[66%] -translate-x-1/2 z-30"
-                  >
-                    <div className="relative w-[170px] md:w-[220px]">
-                      <img
-                        src="/text_bubble.png"
-                        alt="Speech Bubble"
-                        className="w-full"
-                      />
-                      <div className="absolute left-[15%] right-[15%] top-[25%] bottom-[35%] flex items-center justify-center text-center">
-                        <p
-                          className="text-[#2b1a14] text-[13px] md:text-xs font-extrabold leading-snug
-                                     drop-shadow-[0_2px_3px_rgba(255,255,255,0.8)]
-                                     [text-shadow:0_0_6px_rgba(255,255,255,0.9)]"
-                        >
-                          Hey there,<br />
-                          I have something for you
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                )} */}
-
                 {/* Envelope Wrapper */}
                 <motion.div
                   initial={{ x: -600, opacity: 0, rotate: -6 }}
-                  animate={{ x: 0, opacity: 1, rotate: 0 }}
+                  animate={{
+                    x: 0,
+                    opacity: 1,
+                    rotate: 0,
+                    y: isOpening ? -25 : 0,
+                    scale: isOpening ? 1.08 : 1,
+                  }}
                   transition={{
-                    duration: 1.4,
-                    ease: [0.22, 1, 0.36, 1]
+                    duration: 0.8,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
                   className="relative"
                 >
-                  <motion.img
-                    src={
-                      isOpening
-                        ? "/envelope_open.png"
-                        : "/envelope_closed.png"
-                    }
+                  <img
+                    src={isOpening ? "/envelope_open.png" : "/envelope_closed.png"}
                     className="w-[420px] md:w-[580px] drop-shadow-[0_40px_80px_rgba(0,0,0,0.9)]"
                     alt="Envelope"
-                    animate={
-                      isOpening
-                        ? { y: -25, scale: 1.08 }
-                        : { y: 0, scale: 1 }
-                    }
-                    transition={{ duration: 0.8 }}
                   />
+
+                  {/* "from Anthonia" — now moves WITH envelope */}
+                  <span
+                    className="absolute bottom-[12%] right-[16%]
+                              font-italic-serif italic
+                              text-[11px] md:text-sm
+                              text-[#000]/95
+                              drop-shadow-[0_2px_6px_rgba(0,0,0,0.75)]
+                              [text-shadow:0_0_10px_rgba(0,0,0,0.65)]"
+                  >
+                    ~ from Anthonia
+                  </span>
 
                   {/* Light Burst */}
                   {isOpening && (
@@ -149,16 +123,16 @@ export default function Stage() {
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{
                         opacity: [0, 1, 0],
-                        scale: [0.5, 1.8, 2.4]
+                        scale: [0.5, 1.8, 2.4],
                       }}
                       transition={{ duration: 1.4 }}
                       className="absolute inset-0 flex items-center justify-center"
                     >
                       <div
                         className="w-96 h-96 md:w-[520px] md:h-[520px]
-                                   rounded-full
-                                   bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.6)_35%,rgba(255,255,255,0.2)_60%,transparent_75%)]
-                                   blur-3xl"
+                                  rounded-full
+                                  bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.6)_35%,rgba(255,255,255,0.2)_60%,transparent_75%)]
+                                  blur-3xl"
                       />
                     </motion.div>
                   )}
@@ -166,14 +140,13 @@ export default function Stage() {
 
                 {/* Buttons */}
                 <div className="mt-14 flex flex-col gap-6 w-full max-w-[320px]">
-
                   <button
                     onClick={() => {
                       playClick();
                       handleOpen();
                     }}
                     disabled={isOpening}
-                    className="py-4 tracking-[0.35em] font-grand
+                    className="py-8 tracking-[0.35em] font-grander
                                text-black
                                bg-gradient-to-b from-[#f5d08c] to-[#caa95f]
                                shadow-[0_18px_50px_rgba(0,0,0,0.7)]
@@ -199,7 +172,6 @@ export default function Stage() {
                   >
                     IGNORE
                   </button>
-
                 </div>
               </motion.div>
             )}

@@ -44,7 +44,7 @@ export default function Page() {
             px-10 py-5
             text-4xl
             font-grand
-            text-black
+            text-[#000]
             shadow-lg
             underline-none
         "

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Valentia | Medieval Experience",
+  title: "ValenTIA",
   description: "A grand cinematic journey",
 };
 
@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="overflow-hidden bg-[#0a0505]">
+      <body className="overflow bg-[#0a0505]">
         <SoundManager />
         {/* <Cursor /> */}
         <PageTransition>

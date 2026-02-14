@@ -7,7 +7,7 @@ export function playClick() {
   if (!clickAudio) return;
 
   clickAudio.currentTime = 0;
-  clickAudio.volume = 0.5;
+  clickAudio.volume = 0.4;
   clickAudio.play().catch(() => {});
 }
 
@@ -16,12 +16,12 @@ export default function SoundManager() {
   const hasStarted = useRef(false);
 
   useEffect(() => {
-    const ambient = new Audio("/audio/ambient.mp3");
+    const ambient = new Audio("/audio/bg_song.mp3");
     ambient.loop = true;
     ambient.volume = 0;
     ambientRef.current = ambient;
 
-    clickAudio = new Audio("/audio/click.wav");
+    clickAudio = new Audio("/audio/click_sound.mp3");
 
     const startAudio = () => {
       if (hasStarted.current) return;

@@ -149,7 +149,7 @@ export default function Garden() {
 
               <p className="font-italic-serif text-2xl text-[#3b2b1f] italic">
                 “I knew you would come." <br/>
-                Would you be my...
+                BE MY...
               </p>
 
               <div className="mt-6 space-y-3">
