@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { playClick } from "@/components/SoundManager";
 
 export default function GalleryPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [animateIn, setAnimateIn] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const photos = [
@@ -20,16 +21,30 @@ export default function GalleryPage() {
     "/valentia_sexy.png",
   ];
 
+  useEffect(() => {
+    if (activeIndex !== null) {
+      setTimeout(() => setAnimateIn(true), 10);
+    } else {
+      setAnimateIn(false);
+    }
+  }, [activeIndex]);
+
   const next = () => {
     if (activeIndex === null) return;
-    setActiveIndex((activeIndex + 1) % photos.length);
+    setAnimateIn(false);
+    setTimeout(() => {
+      setActiveIndex((activeIndex + 1) % photos.length);
+    }, 150);
   };
 
   const prev = () => {
     if (activeIndex === null) return;
-    setActiveIndex(
-      (activeIndex - 1 + photos.length) % photos.length
-    );
+    setAnimateIn(false);
+    setTimeout(() => {
+      setActiveIndex(
+        (activeIndex - 1 + photos.length) % photos.length
+      );
+    }, 150);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -86,9 +101,7 @@ export default function GalleryPage() {
       {/* Back Button */}
       <Link
         href="/galentine"
-        onClick={() => {
-          playClick();
-        }}
+        onClick={() => playClick()}
         style={{
           position: "fixed",
           top: "22px",
@@ -116,7 +129,10 @@ export default function GalleryPage() {
         {photos.map((src, i) => (
           <div
             key={i}
-            onClick={() => setActiveIndex(i)}
+            onClick={() => {
+              playClick();
+              setActiveIndex(i);
+            }}
             style={{ cursor: "pointer" }}
           >
             <img
@@ -143,19 +159,24 @@ export default function GalleryPage() {
             alignItems: "center",
             justifyContent: "center",
             zIndex: 99999,
+            opacity: animateIn ? 1 : 0,
+            transition: "opacity 0.4s ease",
           }}
         >
           <img
             src={photos[activeIndex]}
+            onClick={(e) => e.stopPropagation()}
             style={{
               maxWidth: "95vw",
               maxHeight: "95vh",
               objectFit: "contain",
+              transform: animateIn ? "scale(1)" : "scale(0.7)",
+              transition: "transform 0.6s ease, opacity 0.6s ease",
+              opacity: animateIn ? 1 : 0,
             }}
           />
         </div>
       )}
-
     </div>
   );
 }
