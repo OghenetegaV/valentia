@@ -13,11 +13,11 @@ export default function GalleryPage() {
     "/valentia_movies.png",
     "/valentia_popcorn.png",
     "/valentia_songs.png",
-    "/valentia_seated.png",
-    "/valentia_winking.png",
     "/valentia_heart.png",
-    "/valentia_roses.png",
     "/valentia_heartbreak.png",
+    "/valentia_seated.png",
+    "/valentia_roses.png",
+    "/valentia_winking.png",
     "/valentia_sexy.png",
   ];
 
