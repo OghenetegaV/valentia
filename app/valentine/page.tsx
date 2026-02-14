@@ -32,7 +32,7 @@ export default function ValentinePage() {
 
       {/* Back Button */}
       <Link
-        href="/"
+        href="/open"
         style={{
           position: "fixed",
           top: "28px",
@@ -68,7 +68,7 @@ export default function ValentinePage() {
               </button>
 
               <button
-                onClick={() => router.push("/gallery")}
+                onClick={() => router.push("/gallery-val")}
                 className="px-8 py-3 font-grand tracking-[0.15em] bg-gradient-to-b from-[#8b0000] to-[#4a0000] text-white shadow-[0_15px_50px_rgba(0,0,0,0.6)] hover:scale-105 transition-all duration-300"
               >
                 WALK WITH ME

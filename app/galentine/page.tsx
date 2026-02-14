@@ -33,7 +33,7 @@ export default function Page() {
 
       {/* Back Button */}
         <Link
-        href="/"
+        href="/open"
         style={{
             position: "fixed",
             top: "22px",
@@ -86,7 +86,7 @@ export default function Page() {
             </button>
 
             <button
-              onClick={() => router.push("/gallery")}
+              onClick={() => router.push("/gallery-gal")}
               className="px-8 py-3 font-grand tracking-[0.15em]
                          bg-gradient-to-b from-[#8b0000] to-[#4a0000]
                          text-white

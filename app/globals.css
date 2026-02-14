@@ -4,57 +4,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Root Variables (kept only if you want to use them manually) */
 :root {
   --gold: #d4af37;
-  --gold-glow: rgba(212, 175, 55, 0.5);
+  --gold-glow: #d4af3780;
   --cursor-img: url('/cursor.png');
 }
 
+/* Base reset */
 body {
   background-color: #0a0505;
-  color: var(--gold);
   margin: 0;
 }
 
-.font-medieval { font-family: 'Pirata One', system-ui; }
-.font-grand { font-family: 'Cinzel Decorative', serif; }
-.font-italic-serif { font-family: 'Cormorant Garamond', serif; }
-
-/* THE STYLED BUTTON */
-.btn-medieval {
-  position: relative;
-  padding: 1.5rem 3rem;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  background: linear-gradient(180deg, rgba(45, 10, 10, 0.9) 0%, rgba(20, 5, 5, 1) 100%);
-  border: 2px solid rgba(212, 175, 55, 0.3);
-  color: var(--gold);
-  cursor: pointer;
-  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Font Utilities */
+.font-medieval { 
+  font-family: 'Pirata One', system-ui; 
 }
 
-/* Force the system cursor to stay hidden even on buttons and links */
-button, a, .btn-medieval {
-  cursor: none !important;
-} 
-
-.btn-medieval:hover {
-  transform: scale(1.1);
-  border-color: #d4af37;
-  color: #fff;
-  box-shadow: 0 0 25px var(--gold-glow);
-  text-shadow: 0 0 10px var(--gold-glow);
+.font-grand { 
+  font-family: 'Cinzel Decorative', serif; 
 }
 
-.btn-red-alert:hover {
-  border-color: #ff0000;
-  color: #ff4d4d;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-  text-shadow: 0 0 15px #ff0000;
+.font-italic-serif { 
+  font-family: 'Cormorant Garamond', serif; 
 }
+
+/* Optional Decorative Effects (non-restrictive) */
 
 .vignette-overlay {
   background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.95) 100%);
@@ -64,7 +40,10 @@ button, a, .btn-medieval {
 }
 
 .scanline-effect {
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.1) 50%
+  );
   background-size: 100% 4px;
   position: absolute;
   inset: 0;

@@ -161,7 +161,7 @@ export default function Garden() {
                   }}
                   className="w-full py-3 text-lg font-grand bg-[#6b4b2a] text-white hover:bg-[#7c5a35] transition active:scale-95"
                 >
-                  Galentine
+                  GALENTINE
                 </button>
 
                 <button
@@ -171,7 +171,7 @@ export default function Garden() {
                   }}
                   className="w-full py-3 text-lg font-grand bg-[#8b2a2a] text-white hover:bg-[#a33636] transition active:scale-95"
                 >
-                  Valentine
+                  VALENTINE
                 </button>
 
               </div>

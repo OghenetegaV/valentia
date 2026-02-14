@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ValenTIA",
-  description: "A grand cinematic journey",
+  title: "ValenTIA| ME TO YOU ",
+  description: "Secret...sEcReT~ OUUUUUU",
 };
 
 export default function RootLayout({

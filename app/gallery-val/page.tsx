@@ -8,11 +8,17 @@ export default function GalleryPage() {
   const [active, setActive] = useState<string | null>(null);
 
   const photos = [
+    // "/valentia_hug.png",
+    "/valentia_movies.png",
+    "/valentia_popcorn.png",
+    "/valentia_songs.png",
     "/valentia_seated.png",
     "/valentia_winking.png",
     "/valentia_heart.png",
     "/valentia_roses.png",
-    "/valentia_seated3.png",
+    "/valentia_heartbreak.png",
+    "/valentia_sexy.png",
+
   ];
 
   return (
@@ -23,7 +29,7 @@ export default function GalleryPage() {
 
       {/* Back Button */}
       <Link
-        href="/galentine"
+        href="/valentine"
         style={{
             position: "fixed",
             top: "22px",
@@ -42,16 +48,16 @@ export default function GalleryPage() {
 
       {/* Title */}
       <div className="relative z-20 text-center pt-32">
-        <h1 className="font-italic-serif text-6xl md:text-8xl text-[#e6c88a] italic tracking-wide">
+        {/* <h1 className="font-italic-serif text-6xl md:text-8xl text-[#e6c88a] italic tracking-wide">
           Fragments
-        </h1>
+        </h1> */}
 
-        <p className="mt-4 text-white/30 tracking-widest text-xs">
+        <p className="mt-5 text-[#d4af37] tracking-widest text-xs">
           Not everything was meant to be whole.
         </p>
 
-        <p className="mt-2 text-red-600 italic tracking-widest text-sm">
-          Click to reveal
+        <p className="mt-2 text-[#d4af3790] italic tracking-widest text-sm">
+          Click images to reveal!
         </p>
       </div>
 
