@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { playClick } from "@/components/SoundManager";
 
 export default function ValentinePage() {
   const [showLetter, setShowLetter] = useState(false);
@@ -33,6 +34,9 @@ export default function ValentinePage() {
       {/* Back Button */}
       <Link
         href="/open"
+        onClick={() => {
+          playClick();
+        }}
         style={{
           position: "fixed",
           top: "28px",
@@ -61,14 +65,20 @@ export default function ValentinePage() {
             <div className="my-12 flex justify-center gap-8 flex-wrap">
 
               <button
-                onClick={() => setShowLetter(true)}
+                onClick={() => {
+                  playClick();
+                  setShowLetter(true);
+                }}
                 className="px-8 py-3 font-grand tracking-[0.15em] bg-gradient-to-b from-[#e6c88a] to-[#b89a5e] text-black shadow-[0_15px_50px_rgba(0,0,0,0.6)] hover:scale-105 transition-all duration-300"
               >
                 READ ME
               </button>
 
               <button
-                onClick={() => router.push("/gallery-val")}
+                onClick={() => {
+                  playClick();
+                  router.push("/gallery-val");
+                }}
                 className="px-8 py-3 font-grand tracking-[0.15em] bg-gradient-to-b from-[#8b0000] to-[#4a0000] text-white shadow-[0_15px_50px_rgba(0,0,0,0.6)] hover:scale-105 transition-all duration-300"
               >
                 WALK WITH ME
@@ -128,9 +138,10 @@ export default function ValentinePage() {
                 className="text-center"
               >
                 <p className="font-serif text-[#3b2b1f] text-base md:text-lg leading-relaxed">
-                  You had your chance to leave… but if you made it this far, stop fighting it. You’re in love with me and I love you right back💌 <br /><br />
+                  You had your chance to leave… <br />If you made it this far just stop fighting it. <br /><br />
+                   <span className="uppercase">You’re so in love with me and I love you right back💌</span> <br /><br />
 
-                  Hi 🌹 <br /><br />
+                  🌹 Hi 🌹 <br /><br />
 
                   At this point Valentine is probably already coming to a close but I’ve genuinely been trapped with work and couldn’t get around to making this in time. And honestly? I’d much rather be trapped in your arms. I’m not even joking. I’d pick that over deadlines any day. <br /><br />
 

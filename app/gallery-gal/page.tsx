@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { playClick } from "@/components/SoundManager";
 
 export default function GalleryPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -85,6 +86,9 @@ export default function GalleryPage() {
       {/* Back Button */}
       <Link
         href="/galentine"
+        onClick={() => {
+          playClick();
+        }}
         style={{
           position: "fixed",
           top: "22px",

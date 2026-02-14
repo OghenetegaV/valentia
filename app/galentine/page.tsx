@@ -34,6 +34,9 @@ export default function Page() {
       {/* Back Button */}
         <Link
         href="/open"
+        onClick={() => {
+          playClick();
+        }}
         style={{
             position: "fixed",
             top: "22px",
@@ -72,7 +75,10 @@ export default function Page() {
           <div className="mt-12 flex justify-center gap-8 flex-wrap">
 
             <button
-              onClick={() => setShowLetter(true)}
+              onClick={() => {
+                playClick();
+                setShowLetter(true);
+              }}
               className="px-8 py-3 font-grand tracking-[0.15em]
                          bg-gradient-to-b from-[#e6c88a] to-[#b89a5e]
                          text-black
@@ -86,7 +92,10 @@ export default function Page() {
             </button>
 
             <button
-              onClick={() => router.push("/gallery-gal")}
+              onClick={() => {
+                    playClick();
+                    router.push("/gallery-gal");
+                  }}
               className="px-8 py-3 font-grand tracking-[0.15em]
                          bg-gradient-to-b from-[#8b0000] to-[#4a0000]
                          text-white

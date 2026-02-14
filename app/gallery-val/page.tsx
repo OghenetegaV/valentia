@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { playClick } from "@/components/SoundManager";
 
 export default function GalleryPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -85,6 +86,9 @@ export default function GalleryPage() {
       {/* Back Button */}
       <Link
         href="/valentine"
+        onClick={() => {
+            playClick();
+        }}
         style={{
           position: "fixed",
           top: "22px",
@@ -103,7 +107,7 @@ export default function GalleryPage() {
         </p>
 
         <p className="mt-4 text-[#d4af3780] italic text-base font-bold">
-          Click To Reveal
+          Click Image To Reveal
         </p>
       </div>
 
