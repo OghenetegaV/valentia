@@ -7,7 +7,10 @@ import { playClick } from "@/components/SoundManager";
 export default function GalleryPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [animateIn, setAnimateIn] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const touchStartX = useRef<number | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const photos = [
     "/valentia_movies.png",
@@ -21,6 +24,21 @@ export default function GalleryPage() {
     "/valentia_sexy.png",
   ];
 
+  /* =========================
+     CLEANUP ON PAGE UNMOUNT
+  ========================== */
+  useEffect(() => {
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+    };
+  }, []);
+
+  /* =========================
+     IMAGE ANIMATION
+  ========================== */
   useEffect(() => {
     if (activeIndex !== null) {
       setTimeout(() => setAnimateIn(true), 10);
@@ -61,8 +79,33 @@ export default function GalleryPage() {
     touchStartX.current = null;
   };
 
+  /* =========================
+     PLAY / PAUSE TOGGLE
+  ========================== */
+  const handleToggleMessage = () => {
+    playClick();
+
+    if (!videoRef.current) return;
+
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   return (
     <div className="min-h-screen w-full bg-black relative">
+
+      {/* Hidden Video (Audio Only) */}
+      <video
+        ref={videoRef}
+        src="/valentine_voiceover.mp4"
+        preload="auto"
+        className="hidden"
+      />
 
       {/* LEFT LIGHT */}
       <div
@@ -113,15 +156,26 @@ export default function GalleryPage() {
         ← Back
       </Link>
 
-      {/* Title */}
-      <div className="text-center pt-48 relative z-20">
-        <p className="text-[#d4af37] text-sm tracking-widest">
+      {/* Title + Play Button */}
+      <div className="text-center pt-40 relative z-20">
+        {/* <p className="text-[#d4af37] text-sm tracking-widest">
           Not everything was meant to be whole.
-        </p>
+        </p> */}
 
         <p className="mt-4 text-[#d4af3780] italic text-base font-bold">
           Click Image To Reveal
         </p>
+
+        <button
+          onClick={handleToggleMessage}
+          className="mt-8 px-8 py-3 
+                     bg-gradient-to-b from-[#e6c88a] to-[#b89a5e]
+                     text-black font-semibold tracking-widest
+                     shadow-lg hover:scale-105 active:scale-95
+                     transition-all duration-300"
+        >
+          {isPlaying ? "⏸ Pause Message" : "▶ Play Message"}
+        </button>
       </div>
 
       {/* Gallery */}
