@@ -103,7 +103,7 @@ export default function Page() {
         </motion.div>
       )}
 
-      {/* Scroll Overlay (original size restored) */}
+      {/* ===== SCROLL OVERLAY ===== */}
       <AnimatePresence>
         {showLetter && (
           <motion.div
@@ -111,51 +111,71 @@ export default function Page() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-black/60"
             onClick={() => setShowLetter(false)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.45 }}
-              className="relative w-[92vw] max-w-[600px]"
+
+            {/* PERFECT CENTER */}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(9%, 35%)",
+                width: "92vw",
+                maxWidth: "650px",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
+
               <motion.img
                 src="/scroll.png"
                 alt="Scroll"
                 className="w-full drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.8 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.45 }}
               />
 
+              {/* SCROLL CONTENT AREA (Scrollable) */}
               <div
-                className="absolute
-                           left-[16%] right-[16%]
-                           top-[20%] bottom-[25%]
-                           flex flex-col items-center justify-center
-                           text-center"
+                style={{
+                  position: "absolute",
+                  top: "20%",
+                  left: "16%",
+                  right: "16%",
+                  bottom: "22%",
+                  overflowY: "auto",
+                  paddingRight: "6px",
+                }}
+                className="text-center"
               >
                 <p className="font-serif text-[#3b2b1f] text-base md:text-lg leading-relaxed">
-                  My dearest,
-                  <br /><br />
-                  Even in the smallest fragment of love,
-                  you have found a home inside my heart.
-                  <br /><br />
-                  This is not a confession —
-                  it is a promise.
+                  Hi love 💖 <br /><br />
+
+                  If you’re here, just know you’re a certified precious human and I genuinely value you so much. And honestly… what better way to say that than by geeking out and making an animated representation of my heart for you? 😂 Because if I can’t express love dramatically and slightly unhinged, is it even me? <br /><br />
+
+                  I mean… if you’re seeing this, you already know I love my Anime badddd. Like unnecessarily deep. And I’m saying it now with full chest, I love you the same way… maybe even more😭 <br /><br />
+
+                  I really can’t wait to see where our friendship takes us. Soft life? Chaotic adventures? Random 2am voice notes? The possibilities are endless. <br /><br />
+
+                  Just know this, I’ll always be on your side. Hyping you. Defending you. Supporting your delusions within reason 😌 <br /><br />
+
+                  Love you girl. For real for real 💖 <br /><br />
+
+                  ~Anthonia ✨
                 </p>
 
                 <button
                   onClick={() => setShowLetter(false)}
-                  className="mt-10 text-sm text-[#3b2b1f] tracking-wide underline"
+                  className="mt-8 text-sm text-[#3b2b1f] underline"
                 >
                   Close
                 </button>
               </div>
 
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

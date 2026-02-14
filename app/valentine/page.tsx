@@ -12,19 +12,15 @@ export default function ValentinePage() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
 
-      {/* Background */}
+      {/* Dynamic Background */}
       <img
-        src="/valentia_roses.png"
+        src={showLetter ? "/valentia_winking.png" : "/valentia_roses.png"}
         alt="Valentia"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
       />
 
       {/* Base Gradient */}
-      <div className="absolute inset-0 
-                      bg-gradient-to-b 
-                      from-black/70 
-                      via-black/40 
-                      to-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85" />
 
       {/* Extra Dark Layer when letter opens */}
       <motion.div
@@ -34,26 +30,19 @@ export default function ValentinePage() {
         transition={{ duration: 0.4 }}
       />
 
-        {/* Back Button */}
-        <Link
+      {/* Back Button */}
+      <Link
         href="/"
         style={{
-            position: "fixed",
-            top: "22px",
-            left: "22px",
-            zIndex: 9999,
+          position: "fixed",
+          top: "28px",
+          left: "28px",
+          zIndex: 9999,
         }}
-        className="
-            px-10 py-5
-            text-4xl
-            font-grand
-            text-[#f5e6c8]
-            shadow-lg
-            underline-none
-        "
-        >
+        className="px-6 py-3 text-lg font-grand text-[#f5e6c8] bg-black/40 backdrop-blur-md rounded-[12px] hover:scale-105 transition"
+      >
         ← Back
-        </Link>
+      </Link>
 
       {/* ===== CENTERED MAIN PANEL ===== */}
       {!showLetter && (
@@ -61,27 +50,11 @@ export default function ValentinePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute left-1/2 top-1/2 
-                     -translate-x-1/2 -translate-y-1/2 
-                     z-20 w-full px-6"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-full px-6"
         >
-          <div
-            className="relative w-full max-w-2xl mx-auto
-                       text-center
-                       bg-black/40 
-                       border border-white/10
-                       backdrop-blur-md
-                       px-12 py-16
-                       shadow-[0_40px_120px_rgba(0,0,0,0.8)]"
-          >
-            <h1
-              className="font-italic-serif 
-                         text-[clamp(2rem,6vw,5rem)] 
-                         text-[#f5e6c8] 
-                         italic
-                         leading-tight
-                         drop-shadow-[0_0_30px_rgba(255,215,150,0.6)]"
-            >
+          <div className="relative w-full max-w-2xl mx-auto text-center bg-black/40 border border-white/10 backdrop-blur-md px-12 py-16 shadow-[0_40px_120px_rgba(0,0,0,0.8)]">
+
+            <h1 className="font-italic-serif text-[clamp(2rem,6vw,5rem)] text-[#f5e6c8] italic leading-tight drop-shadow-[0_0_30px_rgba(255,215,150,0.6)]">
               Choose a path
             </h1>
 
@@ -89,28 +62,14 @@ export default function ValentinePage() {
 
               <button
                 onClick={() => setShowLetter(true)}
-                className="px-8 py-3 font-grand tracking-[0.15em]
-                           bg-gradient-to-b from-[#e6c88a] to-[#b89a5e]
-                           text-black
-                           shadow-[0_15px_50px_rgba(0,0,0,0.6)]
-                           hover:scale-105
-                           hover:shadow-[0_25px_60px_rgba(230,200,138,0.6)]
-                           active:scale-95
-                           transition-all duration-300"
+                className="px-8 py-3 font-grand tracking-[0.15em] bg-gradient-to-b from-[#e6c88a] to-[#b89a5e] text-black shadow-[0_15px_50px_rgba(0,0,0,0.6)] hover:scale-105 transition-all duration-300"
               >
                 READ ME
               </button>
 
               <button
                 onClick={() => router.push("/gallery")}
-                className="px-8 py-3 font-grand tracking-[0.15em]
-                           bg-gradient-to-b from-[#8b0000] to-[#4a0000]
-                           text-white
-                           shadow-[0_15px_50px_rgba(0,0,0,0.6)]
-                           hover:scale-105
-                           hover:shadow-[0_25px_60px_rgba(139,0,0,0.6)]
-                           active:scale-95
-                           transition-all duration-300"
+                className="px-8 py-3 font-grand tracking-[0.15em] bg-gradient-to-b from-[#8b0000] to-[#4a0000] text-white shadow-[0_15px_50px_rgba(0,0,0,0.6)] hover:scale-105 transition-all duration-300"
               >
                 WALK WITH ME
               </button>
@@ -128,51 +87,71 @@ export default function ValentinePage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-black/60"
             onClick={() => setShowLetter(false)}
           >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.45 }}
-              className="relative w-[95vw] max-w-[900px]"
+
+            {/* PERFECT CENTER */}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(10%, 50%)",
+                width: "92vw",
+                maxWidth: "650px",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
+
               <motion.img
                 src="/scroll.png"
                 alt="Scroll"
-                className="w-full drop-shadow-[0_60px_140px_rgba(0,0,0,0.9)] opacity-70"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
+                className="w-full drop-shadow-[0_40px_100px_rgba(0,0,0,0.9)]"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.8 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.45 }}
               />
 
+              {/* SCROLL CONTENT AREA (Scrollable) */}
               <div
-                className="absolute
-                           left-[14%] right-[14%]
-                           top-[18%] bottom-[22%]
-                           flex flex-col items-center justify-center
-                           text-center"
+                style={{
+                  position: "absolute",
+                  top: "20%",
+                  left: "16%",
+                  right: "16%",
+                  bottom: "22%",
+                  overflowY: "auto",
+                  paddingRight: "6px",
+                }}
+                className="text-center"
               >
-                <p className="font-serif text-[#3b2b1f] text-xl md:text-2xl leading-relaxed">
-                  My love,
-                  <br /><br />
-                  If I could place this rose into your hands,
-                  I would not hesitate.
-                  <br /><br />
-                  Beauty fades.
-                  Intention does not.
+                <p className="font-serif text-[#3b2b1f] text-base md:text-lg leading-relaxed">
+                  Hi love 💖 <br /><br />
+
+                  If you’re here, just know you’re a certified precious human and I genuinely value you so much. And honestly… what better way to say that than by geeking out and making an animated representation of my heart for you? 😂 Because if I can’t express love dramatically and slightly unhinged, is it even me? <br /><br />
+
+                  I mean… if you’re seeing this, you already know I love my Anime badddd. Like unnecessarily deep. And I’m saying it now with full chest, I love you the same way… maybe even more😭 <br /><br />
+
+                  I really can’t wait to see where our friendship takes us. Soft life? Chaotic adventures? Random 2am voice notes? The possibilities are endless. <br /><br />
+
+                  Just know this, I’ll always be on your side. Hyping you. Defending you. Supporting your delusions within reason 😌 <br /><br />
+
+                  Love you girl. For real for real 💖 <br /><br />
+
+                  ~Anthonia ✨
                 </p>
 
                 <button
                   onClick={() => setShowLetter(false)}
-                  className="mt-12 text-base text-[#3b2b1f] tracking-wide underline"
+                  className="mt-8 text-sm text-[#3b2b1f] underline"
                 >
                   Close
                 </button>
               </div>
 
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
