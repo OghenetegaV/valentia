@@ -126,14 +126,17 @@ export default function Page() {
 
             {/* PERFECT CENTER */}
             <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(9%, 35%)",
-                width: "92vw",
-                maxWidth: "650px",
-              }}
+              className="
+                absolute
+                top-[50%] left-[50%]
+                translate-x-[9%] translate-y-[35%]
+
+                md:top-1/2 md:left-1/2
+                md:-translate-x-1/2 md:-translate-y-1/2
+
+                w-[92vw]
+                max-w-[650px]
+              "
               onClick={(e) => e.stopPropagation()}
             >
 
