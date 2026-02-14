@@ -21,7 +21,7 @@ export default function SoundManager() {
     ambient.volume = 0;
     ambientRef.current = ambient;
 
-    clickAudio = new Audio("/audio/click_sound.mp3");
+    clickAudio = new Audio("/audio/click_sound.wav");
 
     const startAudio = () => {
       if (hasStarted.current) return;
